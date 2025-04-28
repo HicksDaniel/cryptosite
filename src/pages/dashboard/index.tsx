@@ -23,42 +23,25 @@ export const Dashboard = () => {
   }, []);
 
   return (
-    <div
-      className="h-screen"
-      style={{
-        borderRadius: "50px",
-        padding: "25px",
-        width: "100%",
-      }}
-    >
-      <button>TEST HERE</button>
-      <div
-        style={{
-          display: "flex",
-          height: "50px",
-          alignItems: "center",
-        }}
-      >
+    <div className="p-4 w-full">
+      <div className="flex align-items-center h-3rem">
         Introduction Tag
       </div>
-
-      <div
-        style={{
-          display: "flex",
-          height: "80px",
-          alignItems: "center",
-          border: "5px solid black",
-        }}
-      >
-        <div>Dataset 1</div>
-        <div>DataSet 2</div>
+      <div className="flex align-items-center h-4rem w-2 justify-content-evenly">
+        <div className="border-round-sm p-2">Dataset 1</div>
+        <div className="border-round-sm p-2">DataSet 2</div>
       </div>
       <div className="flex justify-content-center">
-        <div className="flex justify-content-center w-8 flex-wrap">
-          {data !== null && !loading && <BasicCard />}
-          {data !== null && !loading && <DoughnutChart />}
-          {data !== null && !loading && <StyledLineChart />}
-          {data !== null && !loading && <CompoundLineChart />}
+        <div className="flex justify-content-center w-full flex-wrap">
+
+          {data !== null && !loading && <BasicCard size="w-full max-w-22rem" comp={""} />}
+          {data !== null && !loading && <BasicCard size="w-10" comp={<StyledLineChart />} />}
+          {data !== null && !loading && <BasicCard size="max-w-min" comp={<DoughnutChart />} />}
+          {data !== null && !loading && <BasicCard size="w-10" comp={<CompoundLineChart />} />}
+          {data !== null && !loading && <BasicCard size="w-full max-w-22rem" comp={""} />}
+
+
+
         </div>
       </div>
     </div>

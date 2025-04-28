@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Chart } from "primereact/chart";
 import { useCoinStore } from "../../stores/useCoinStore";
 
@@ -7,9 +7,9 @@ export default function DoughnutChart() {
   const [chartOptions, setChartOptions] = useState({});
   const { data, userCoins, loading, error, fetchData } = useCoinStore();
 
-  const bitcoin = data.find((c) => c.name === "bitcoin");
-  const ethereum = data.find((c) => c.name === "ethereum");
-  const dogecoin = data.find((c) => c.name === "dogecoin");
+  const bitcoin = data.find((c) => c.name === "Bitcoin");
+  const ethereum = data.find((c) => c.name === "Ethereum");
+  const dogecoin = data.find((c) => c.name === "Dogecoin");
   const userBitcoin = userCoins.find((c) => c.name === "bitcoin");
   const userEthereum = userCoins.find((c) => c.name === "ethereum");
   const userDogecoin = userCoins.find((c) => c.name === "dogecoin");
@@ -53,13 +53,14 @@ export default function DoughnutChart() {
   }, []);
 
   return (
-    <div onClick={handleClick} className="card flex justify-content-center">
+    <div onClick={handleClick} className="flex justify-content-center w-full">
       {!loading && hasData && (
         <Chart
           type="doughnut"
           data={chartData}
           options={chartOptions}
-          className="w-full md:w-30rem"
+
+
         />
       )}
     </div>

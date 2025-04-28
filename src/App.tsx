@@ -24,7 +24,7 @@ export const App = () => {
     <PrimeReactProvider>
       <div
         // style={{ minWidth: "325px" }}
-        className="flex justify-content-center flex-column "
+        className="flex justify-content-center flex-column w-full"
       >
         {userAuth ? (
           <Routes>

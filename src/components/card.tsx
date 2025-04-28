@@ -2,42 +2,48 @@ import CompoundLineChart from "./datacharts/compoundlinechart";
 
 import { Card } from "primereact/card";
 
-export default function BasicCard() {
+export default function BasicCard({ size, comp }) {
   return (
     <Card
       pt={{
         root: {
           style: {
-            backgroundColor: "#969696",
+            display: "flex",
+            alignItems: "center",
+            width: "fit-content",
+            justifyContent: "center",
+            backgroundColor: "rgba(50,50,50,0.5)",
+
           },
         },
         body: {
           style: {
-            backgroundColor: "rgba(195,195,195,1)",
-            borderRadius: "50px",
             display: "flex",
-            width: "99%",
-            height: "95%",
-            padding: "20px",
-            margin: "",
-          },
+            alignItems: "center",
+            width: "100%",
+            padding: "10px",
+            margin: "0",
+          }
         },
-
         content: {
           style: {
             display: "flex",
-            borderRadius: "50px",
-            backgroundColor: "rgba(220,220,220,.2)",
-            justifyContent: "center",
-            alignItems: "center",
             width: "100%",
-            height: "100%",
+            borderRadius: "50px",
+            backgroundColor: "rgba(255, 255, 255, 0.4)",
+            border: "10px solid rgba(255, 255, 255, 0.3)",
+
+
+
+
+
+
           },
         },
       }}
-      className="flex border-round-3xl shadow-6 justify-content-center align-items-center w-25rem h-22rem p-0 m-0"
+      className={`flex  border-round-2xl shadow-6 h-23rem ${size}  m-2 p-1`}
     >
-      <CompoundLineChart />
+      {comp}
     </Card>
   );
 }

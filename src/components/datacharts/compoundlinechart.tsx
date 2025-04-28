@@ -6,16 +6,16 @@ export default function CompoundLineChart() {
   const [chartData, setChartData] = useState({});
   const [chartOptions, setChartOptions] = useState({});
   const { data, userCoins, loading, error, fetchData } = useCoinStore();
-  const bitcoin = data.find((c) => c.name === "bitcoin");
-  const ethereum = data.find((c) => c.name === "ethereum");
-  const dogecoin = data.find((c) => c.name === "dogecoin");
+  const bitcoin = data.find((c) => c.name === "Bitcoin");
+  const ethereum = data.find((c) => c.name === "Ethereum");
+  const dogecoin = data.find((c) => c.name === "Dogecoin");
   const userBitcoin = userCoins.find((c) => c.name === "bitcoin");
   const userEthereum = userCoins.find((c) => c.name === "ethereum");
   const userDogecoin = userCoins.find((c) => c.name === "dogecoin");
 
   const handleClick = () => {
-    console.log(chartData.datasets);
-    console.log(chartOptions);
+
+
   };
 
   const calculatePricingDifference = (coin1, coin2) => {
@@ -169,10 +169,9 @@ export default function CompoundLineChart() {
   }, []);
 
   return (
-    <div className="card w-full">
+    <div className="w-full">
       <Chart
         onClick={handleClick}
-        className="w-full"
         type="line"
         data={chartData}
         options={chartOptions}

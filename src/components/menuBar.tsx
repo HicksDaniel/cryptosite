@@ -19,15 +19,7 @@ export default function MenuBar() {
 
   return (
     <div
-      className="card"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        width: "100%",
-        padding: "20px",
-        height: "50px",
-      }}
+      className="flex align-items-center justify-content-between w-full  p-6 h-7rem"
     >
       <Button className="font-primary flex border-round-xl font-bold">
         Snow Lake

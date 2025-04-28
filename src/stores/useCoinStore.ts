@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { structuredCoinData } from "./structureData";
 
 const DEFAULT_DATA_STATE = [];
 const BASE_URL = "https://api.coingecko.com/api/v3";
@@ -46,57 +47,18 @@ export const useCoinStore = create((set) => ({
         .then((responses) => {
           return Promise.all(
             responses.map(async (response) => {
-              const cData = await response;
+              const finalData = structuredCoinData(await response)
 
-              return {
-                name: cData.id || null,
-                last_updated: cData?.last_updated || null,
-                marketData: {
-                  allTimeHigh: {
-                    ath: cData?.market_data?.ath?.usd || null,
-                    ath_cp:
-                      cData?.market_data?.ath_change_percentage?.usd || null,
-                    ath_date: cData?.market_data?.ath_date?.usd || null,
-                  },
+              return finalData
 
-                  allTimeLow: {
-                    atl: cData?.market_data?.atl?.usd || null,
-                    atl_cp:
-                      cData?.market_data?.atl_change_percentage?.usd || null,
-                    atl_date: cData?.market_data?.atl_date?.usd || null,
-                  },
-                  pricing: {
-                    currentPrice:
-                      cData?.market_data?.current_price?.usd || null,
-                    high_24h: cData?.market_data?.high_24h?.usd || null,
-                    low_24h: cData?.market_data?.low_24h?.usd || null,
-                    change_24h:
-                      cData?.market_data?.price_change_24h_in_currency?.usd ||
-                      null,
-                    pcp_1h:
-                      cData?.market_data?.price_change_percentage_1h_in_currency
-                        ?.usd || null,
-                    pcp_24h:
-                      cData?.market_data?.price_change_percentage_24h || null,
-                    pcp_7day:
-                      cData?.market_data?.price_change_percentage_7d || null,
-                    pcp_14day:
-                      cData?.market_data?.price_change_percentage_14d || null,
-                    pcp_30day:
-                      cData?.market_data?.price_change_percentage_30d || null,
-                    pcp_60day:
-                      cData?.market_data?.price_change_percentage_60d || null,
-                    pcp_200day:
-                      cData?.market_data?.price_change_percentage_200d || null,
-                    pcp_1year:
-                      cData?.market_data?.price_change_percentage_1y || null,
-                  },
-                },
-              };
+
+
+
             })
           );
         })
         .then((d) => {
+
           set({ data: d, loading: false, userCoins });
         });
     } catch (error) {
