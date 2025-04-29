@@ -77,9 +77,7 @@ export default function StyledLineChart() {
       aspectRatio: 1,
       plugins: {
         legend: {
-          labels: {
-            color: textColor,
-          },
+
         },
       },
       scales: {
@@ -99,20 +97,20 @@ export default function StyledLineChart() {
           reverse: true,
           type: "logarithmic",
 
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-          },
+          // ticks: {
+          //   color: textColorSecondary,
+          // },
+          // grid: {
+          //   color: surfaceBorder,
+          // },
         },
         y: {
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-          },
+          // ticks: {
+          //   color: textColorSecondary,
+          // },
+          // grid: {
+          //   color: surfaceBorder,
+          // },
         },
       },
     };

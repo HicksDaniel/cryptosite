@@ -48,9 +48,7 @@ export default function DoughnutChart() {
     const options = {
       plugins: {
         legend: {
-          labels: {
-            color: textColor,
-          },
+
         },
       },
       cutout: "50%",

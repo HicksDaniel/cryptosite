@@ -13,7 +13,7 @@ export default function CompoundLineChart() {
   const userEthereum = userCoins.find((c) => c.name === "ethereum");
   const userDogecoin = userCoins.find((c) => c.name === "dogecoin");
 
-  const handleClick = () => {};
+  const handleClick = () => { };
 
   const calculatePricingDifference = (coin1, coin2) => {
     const array1 = coin1;
@@ -55,7 +55,7 @@ export default function CompoundLineChart() {
 
   useEffect(() => {
     const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue("--text-color");
+
     const textColorSecondary = documentStyle.getPropertyValue(
       "--text-color-secondary"
     );
@@ -121,9 +121,7 @@ export default function CompoundLineChart() {
 
       plugins: {
         legend: {
-          labels: {
-            color: textColor,
-          },
+
         },
       },
       scales: {
@@ -143,20 +141,10 @@ export default function CompoundLineChart() {
           reverse: true,
           type: "logarithmic",
 
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-          },
+
         },
         y: {
-          ticks: {
-            color: textColorSecondary,
-          },
-          grid: {
-            color: surfaceBorder,
-          },
+
         },
       },
     };

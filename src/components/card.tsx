@@ -14,7 +14,7 @@ export default function BasicCard({ size, comp }) {
               width: "100%",
               justifyContent: "center",
 
-              outline: "1px solid rgba(0,0,0,0.1)",
+              outline: "2px solid rgba(0,0,0,0.1)",
             },
           },
           body: {
@@ -34,7 +34,7 @@ export default function BasicCard({ size, comp }) {
             },
           },
         }}
-        className={`flex p-fluid min-w-min border-round-2xl shadow-6 h-23rem m-2 p-1`}
+        className={`flex  min-w-min border-round-2xl shadow-6 h-23rem m-2 p-1`}
       >
         {comp}
       </Card>

@@ -12,20 +12,17 @@ import { Login } from "./pages/login";
 
 import "./App.css";
 import "primeflex/primeflex.css";
-// import "primereact/resources/themes/md-light-deeppurple/theme.css";
-// import "primereact/resources/themes/md-dark-deeppurple/theme.css";
 import "primeicons/primeicons.css";
-import { ThemeContext } from "./components/common/themeprovider.tsx";
+
 
 export const App = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const [userAuth, setUserAuth] = useState(false);
 
-  console.log(theme);
 
   return (
     <div className="flex justify-content-center flex-column w-full">
-      <button onClick={toggleTheme}>Toggle Theme</button>
+
       {userAuth ? (
         <Routes>
           <Route path="/" element={<Login />} />
