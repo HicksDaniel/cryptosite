@@ -47,18 +47,14 @@ export const useCoinStore = create((set) => ({
         .then((responses) => {
           return Promise.all(
             responses.map(async (response) => {
-              const finalData = structuredCoinData(await response)
+              const finalData = structuredCoinData(await response);
 
-              return finalData
-
-
-
-
+              return finalData;
             })
           );
         })
         .then((d) => {
-
+          console.log(d);
           set({ data: d, loading: false, userCoins });
         });
     } catch (error) {

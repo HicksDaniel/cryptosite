@@ -13,10 +13,7 @@ export default function CompoundLineChart() {
   const userEthereum = userCoins.find((c) => c.name === "ethereum");
   const userDogecoin = userCoins.find((c) => c.name === "dogecoin");
 
-  const handleClick = () => {
-
-
-  };
+  const handleClick = () => {};
 
   const calculatePricingDifference = (coin1, coin2) => {
     const array1 = coin1;

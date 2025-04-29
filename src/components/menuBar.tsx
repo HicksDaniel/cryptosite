@@ -18,21 +18,19 @@ export default function MenuBar() {
   };
 
   return (
-    <div
-      className="flex align-items-center justify-content-between w-full  p-6 h-7rem"
-    >
+    <div className="flex align-items-center justify-content-between w-full  p-6 h-7rem">
       <Button className="font-primary flex border-round-xl font-bold">
         Snow Lake
       </Button>
       <Menubar
         style={{ fontWeight: "500" }}
-        pt={{
-          menuitem: {
-            style: { display: "flex", width: "auto", margin: "0px 5px" },
-          },
+        // pt={{
+        //   menuitem: {
+        //     style: { display: "flex", width: "auto", margin: "0px 5px" },
+        //   },
 
-          content: { style: {} },
-        }}
+        //   content: { style: {} },
+        // }}
         model={menuItems}
       />
     </div>

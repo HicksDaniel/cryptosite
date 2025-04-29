@@ -1,14 +1,19 @@
 import { StrictMode } from "react";
+import { PrimeReactProvider } from "primereact/api";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { App } from "./App.tsx";
 import { BrowserRouter } from "react-router";
-import MenuBar from "./components/menuBar.tsx";
+import { ThemeProvider } from "./components/common/themeprovider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <PrimeReactProvider>
+      <ThemeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </PrimeReactProvider>
   </StrictMode>
 );

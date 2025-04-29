@@ -22,6 +22,7 @@ export default function DoughnutChart() {
 
   useEffect(() => {
     const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue("--text-color");
     const data = {
       labels: [ethereum?.name, dogecoin?.name, bitcoin?.name],
       datasets: [
@@ -45,7 +46,14 @@ export default function DoughnutChart() {
       ],
     };
     const options = {
-      cutout: "60%",
+      plugins: {
+        legend: {
+          labels: {
+            color: textColor,
+          },
+        },
+      },
+      cutout: "50%",
     };
 
     setChartData(data);
@@ -55,13 +63,7 @@ export default function DoughnutChart() {
   return (
     <div onClick={handleClick} className="flex justify-content-center w-full">
       {!loading && hasData && (
-        <Chart
-          type="doughnut"
-          data={chartData}
-          options={chartOptions}
-
-
-        />
+        <Chart type="doughnut" data={chartData} options={chartOptions} />
       )}
     </div>
   );

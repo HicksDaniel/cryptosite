@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "primereact/chart";
 import { useCoinStore } from "../../stores/useCoinStore";
 
-
 export default function StyledLineChart() {
   const [chartData, setChartData] = useState({});
   const [chartOptions, setChartOptions] = useState({});
@@ -12,15 +11,10 @@ export default function StyledLineChart() {
   const dogecoin = data.find((c) => c.name === "Dogecoin");
   const userBitcoin = userCoins.find((c) => c.name === "bitcoin");
   const userEthereum = userCoins.find((c) => c.name === "ethereum");
-  const userDogecoin = userCoins.find((c) => c.name === "Dogecoin");
-
-
+  const userDogecoin = userCoins.find((c) => c.name === "dogecoin");
 
   const calculatePercentageChange = (coinData, userData) => {
     const currentPrice = coinData?.currentPrice;
-
-
-
 
     return [
       userData * currentPrice,
@@ -75,7 +69,6 @@ export default function StyledLineChart() {
           fill: false,
           borderColor: documentStyle.getPropertyValue("--yellow-500"),
           tension: 0.4,
-          backgroundColor: "rgba(255,167,38,0.2)",
         },
       ],
     };
@@ -129,8 +122,13 @@ export default function StyledLineChart() {
   }, []);
 
   return (
-    <div className="flex w-12">
-      <Chart className="flex w-12" type="line" data={chartData} options={chartOptions} />
+    <div className="flex min-w-full">
+      <Chart
+        className="flex w-12"
+        type="line"
+        data={chartData}
+        options={chartOptions}
+      />
     </div>
   );
 }
